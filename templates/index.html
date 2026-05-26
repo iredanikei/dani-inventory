@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+    >
+    <meta charset="UTF-8">
+
+    <title>Inventario</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+</head>
+
+<body>
+
+    <h1>Lista de objetos</h1>
+
+    <hr>
+
+    {% for objeto in objetos %}
+
+        <div>
+
+            <h2>{{ objeto.nombre }}</h2>
+
+            <p>
+                Ubicación: {{ objeto.ubicacion.capitalize() }}
+            </p>
+
+            <p>
+                Estado: {{ objeto.estado.capitalize() }}
+            </p>
+
+            <a href="/objeto/{{ objeto.id }}">
+                Ver detalles
+            </a>
+
+            <hr>
+
+        </div>
+
+    {% endfor %}
+
+</body>
+</html>

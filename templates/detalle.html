@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+    >
+    <meta charset="UTF-8">
+
+    <title>Detalle del objeto</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+</head>
+
+<body>
+
+    {% if objeto %}
+
+        <h1>{{ objeto.nombre.capitalize() }}</h1>
+
+        <hr>
+
+        <h2>
+            <strong>Estado:
+            {{ objeto.estado.capitalize() }}</strong>
+            </h2>
+
+        <p>
+            <strong>ID:</strong>
+            {{ objeto.id }}
+        </p>
+
+        <p>
+            <strong>Marca:</strong>
+            {{ objeto.marca.title() }}
+        </p>
+
+        <p>
+            <strong>Modelo:</strong>
+            {{ objeto.modelo.title() }}
+        </p>
+
+        <p>
+            <strong>Número de serie:</strong>
+            {{ objeto["numero de serie"].upper() }}
+        </p>
+
+        <p>
+            <strong>Número interno:</strong>
+            {{ objeto["numero interno"] }}
+        </p>
+
+        <p>
+            <strong>Último mantenimiento:</strong>
+            {{ objeto["entregado el dia"] }}
+        </p>
+
+        <p>
+            <strong>Ubicación:</strong>
+            {{ objeto.ubicacion.capitalize() }}
+        </p>
+
+    {% else %}
+
+        <h1>Objeto no encontrado</h1>
+
+    {% endif %}
+
+    <br>
+
+    <a href="/">
+        Volver al inventario
+    </a>
+
+</body>
+</html>
